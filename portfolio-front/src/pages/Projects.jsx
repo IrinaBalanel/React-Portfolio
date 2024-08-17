@@ -18,7 +18,7 @@ export default function Projects(){
 
     useEffect(() => {
     const getProjects = async () => {
-        let response = await fetch("http://localhost:8000/projects");
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/projects`);
         let data = await response.json();
         setProjects(data);
         console.log(data);
