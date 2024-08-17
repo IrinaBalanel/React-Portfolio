@@ -5,7 +5,7 @@ const cors = require("cors"); //need this to set this API to allow requests from
 const { MongoClient } = require("mongodb");
 
 const app = express();
-// const port = process.env.PORT || "8000";
+const port = process.env.PORT || "8000";
 
 const dbUrl= `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/?retryWrites=true&w=majority&appName=portfolio`;
 const client = new MongoClient(dbUrl);
@@ -79,10 +79,6 @@ async function contact(newMessage) {
 }
 
 //set up server listening
-// app.listen(port, () => {
-//   console.log(`Listening on http://localhost:${port}`);
-// });
-
-app.listen(() => {
-  console.log('Server is running');
+app.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}`);
 });

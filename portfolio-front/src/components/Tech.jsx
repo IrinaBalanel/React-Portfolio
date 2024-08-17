@@ -6,7 +6,7 @@ export default function Tech(){
 
     useEffect(() => {
     const getSkills = async () => {
-        let response = await fetch(`${process.env.REACT_APP_API_URL}`);
+        let response = await fetch('http://localhost:8000/');
         let data = await response.json();
         setSkills(data);
         console.log(data);
