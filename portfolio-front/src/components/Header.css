@@ -1,0 +1,107 @@
+#header{
+    background-color: #191919;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 30px 100px;
+    align-items: center;
+    position: relative; /* Allows absolute positioning within the header */
+    top:0;
+    z-index: 1000; /* Ensure header is above other content */
+}
+
+nav ul{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 50px;
+    z-index: 1000; /* Ensure the menu is above other content but below the button */
+    border-radius: 0 0 10px 10px; /* Optional: rounded corners */
+}
+
+#header a:hover{
+    color:#f95895;
+}
+
+
+.menu-toggle {
+    display: none;
+    z-index: 1100; /* Ensure the button is above the menu */
+    position: relative; /* To ensure proper stacking context */
+}
+  
+.nav-items.show li {
+    margin: 10px 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1040px) {
+
+    .hidden {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1100;
+        position: relative;
+    }
+
+    .nav-items {
+        display: none;
+       
+    }
+
+
+    .nav-items.show {
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        background-color: #252525;
+        padding: 80px 0;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .bar {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: #b1275c;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Animation to transform the bars into an "X" */
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+    
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0; /* Fade out the middle bar */
+    }
+    
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    button.menu-toggle:focus, button.menu-toggle:focus-visible {
+        outline: none;
+    }
+
+    #header{
+        padding: 30px 30px;
+    }
+
+}

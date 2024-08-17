@@ -1,0 +1,79 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+#root{
+
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+p{
+  font-size: 1.1em;
+  font-family: "Open-Sans", sans-serif;
+
+}
+
+
+.btn-outlined{
+  border: 2px solid #b1275c;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+}
+
+.btn-outlined:hover{
+  background: #b1275c;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-filled{
+  background-color: #b1275c;
+  border: 2px solid #b1275c;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.btn-filled:hover{
+  background-color: #c7306a;
+  color: white;
+}
+
+.icon{
+  width: 1.8em;
+  height: auto;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+
+h2{
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.section-p{
+  max-width: 600px;
+  text-align: center;
+  margin: 20px 0;
+}
+
