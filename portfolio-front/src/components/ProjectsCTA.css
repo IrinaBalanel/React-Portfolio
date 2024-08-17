@@ -4,8 +4,6 @@
     align-items: center;
     padding: 150px 20px 50px 20px;
     background: radial-gradient(ellipse at center, rgba(145, 42, 82, 0.6) 20%, rgba(114, 37, 67, 0.4) 40%, rgba(25, 25, 25, 0.2) 70%, rgba(25, 25, 25, 0) 100%);
-    
-    /* gap: 10px; */
 }
 
 #projects-cta a{

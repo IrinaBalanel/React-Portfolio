@@ -26,7 +26,6 @@
 }
 
 .contact-text p:last-of-type{
-    /* font-weight: 800; */
     margin-bottom: 0;
 }
 #colored-link{
@@ -122,14 +121,6 @@ label{
         justify-content: space-evenly;
     }
 
-    /* #form-text{
-        display: flex;
-        flex-direction: column;
-    } */
-
-    /* #contact-text{
-        display:none;
-    } */
 }
 
 @media (max-width: 868px) {

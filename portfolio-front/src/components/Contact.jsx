@@ -9,7 +9,6 @@ export default function Contact(){
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
-    // const [responseMessage, setResponseMessage] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     
     const handleSubmit = async (e) => {
@@ -25,7 +24,6 @@ export default function Contact(){
             });
       
             const data = await response.json();
-            // setResponseMessage('Form submitted successfully!');
             console.log('Success:', data);
             // clears the form fields after submission
             setName('');
@@ -35,7 +33,6 @@ export default function Contact(){
             
             setIsSubmitted(true); // updates the button text to "Submitted"
         } catch (error) {
-            // setResponseMessage('Error submitting form. Please try again.');
             console.error('Error:', error);
         }
     };

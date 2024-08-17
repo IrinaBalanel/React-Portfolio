@@ -4,12 +4,6 @@ import {NavLink} from "react-router-dom"
 import {useState} from "react";
 
 export default function Header() {
-	// const handleScroll = (el) => {
-	// 	setTimeout(() => {
-	// 		el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-	// 	}, 100);
-	// };
-	// handleScroll();
 	
 	const [menuVisible, setMenuVisible] = useState(false);
 	const toggleMenu = () => {
