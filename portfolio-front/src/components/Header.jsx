@@ -12,7 +12,7 @@ export default function Header() {
 	return (
 		<header id="header">
 		<div id="logo">
-			<img src="/logo.svg" alt="Irina Balanel, Full-Stack Developer"/>
+			<Link smooth to="/"><img src="/logo.svg" alt="Irina Balanel, Full-Stack Developer"/></Link>
 		</div>
 		<nav>
 			<button type="button" className={`menu-toggle ${menuVisible ? 'open' : ''}`} onClick={toggleMenu}>

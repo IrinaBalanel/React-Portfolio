@@ -8,7 +8,7 @@ export default function About(){
             <p className="section-p">Every step of my career is shaped by a strong foundation of values that guide my decisions and drive my success.</p>
             <div id="columns">
                 <div className="flex-col">
-                    <img src="/Calendar.svg" className="icon-big"></img>
+                    <img src="/Calendar.svg" className="icon-big" alt="" aria-hidden="true"></img>
                     <h3>Focus & Consistency</h3>
                     <p>From managing software products to mastering web development, my career is driven by a love for learning and innovation. My focus? Building high-quality user-centric applications that make a difference.</p>
                     <div className="flex-icon">
@@ -17,7 +17,7 @@ export default function About(){
                     </div>
                 </div>
                 <div className="flex-col">
-                    <img src="/Diamond.svg" className="icon-big"></img>
+                    <img src="/Diamond.svg" className="icon-big" alt="" aria-hidden="true"></img>
                     <h3>Perseverance & Challenge</h3>
                     <p>With expertise ranging from React to Node.js, my skills span the full stack of software development. My journey is rooted in perseverance, always challenging myself to learn and excel. Discover more in my resume.</p>
                     <div className="flex-icon">
@@ -26,11 +26,11 @@ export default function About(){
                     </div>
                 </div>
                 <div className="flex-col">
-                    <img src="/ColorPalette.svg" className="icon-big"></img>
+                    <img src="/ColorPalette.svg" className="icon-big" alt="" aria-hidden="true"></img>
                     <h3>Creativity & Quality</h3>
                     <p>Creativity drives everything I do, from intuitive UIs to innovative solutions. I'm committed to bringing ideas to life in functional and visually appealing ways, always striving to exceed expectations. Let's collaborate!</p>
                     <div className="flex-icon">
-                        <img src="/send.svg" alt="send email"/>
+                        <img src="/send.svg" alt="send email to"/>
                         <Link to="mailto:irina.cowork@gmail.com">irina.cowork@gmail.com</Link>
                     </div>
                 </div>
