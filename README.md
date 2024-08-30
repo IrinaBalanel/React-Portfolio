@@ -14,7 +14,13 @@ The frontend, built with React, interacts with the backend API to fetch real-tim
 
 ## Technologies
 
-- MongoDB - Node.js - Express.js - React - HTML - CSS - Media Queries for responsiveness
+- MongoDB
+- Node.js
+- Express.js
+- React
+- HTML
+- CSS
+- Media Queries for responsiveness
 
 ## User Interface
 <img src="design.png" width="600px"/>
