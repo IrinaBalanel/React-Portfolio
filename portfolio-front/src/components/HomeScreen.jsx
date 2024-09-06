@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 export default function HomeScreen() {
     return (
         <div id="home">
-            <img src="/IB-big.png" alt="Irina Balanel" width="400px" height="auto"/>
+            <img src="/IB-big.png" alt="Irina Balanel" width="380px" height="auto"/>
             <h1>Irina Balanel</h1>
             <p>Full-Stack Developer who stands at the crossroads of creativity and technology, bridging ideas with innovation in the ever-evolving digital landscape</p>
             <div id="buttons">
