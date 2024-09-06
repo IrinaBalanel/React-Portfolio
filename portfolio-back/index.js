@@ -14,8 +14,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); //need this line to be able to receive/parse JSON from request
 
 //allow requests from all servers
+// app.use(cors({
+//   origin: "*"
+// }));
+const allowedOrigins = ['https://irinabalanel.com', 'http://localhost:8000'];
+
 app.use(cors({
-  origin: "*"
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) { //The !origin part is a check to see if the origin is null or undefined, and it allows requests without an origin to pass (requests coming from the same server, Postman curl or server-to-server requests.)
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 //API endpoints

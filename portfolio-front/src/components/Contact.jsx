@@ -15,7 +15,8 @@ export default function Contact(){
         e.preventDefault();
         const formData = { name, email, phone, message };
         try {
-            const response = await fetch('http://localhost:8000/contactform/submit', {
+            // const response = await fetch('http://localhost:8000/contactform/submit', {
+            const response = await fetch('https://react-portfolio-back.onrender.com/contactform/submit', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',

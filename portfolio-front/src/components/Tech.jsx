@@ -6,7 +6,8 @@ export default function Tech(){
 
     useEffect(() => {
     const getSkills = async () => {
-        let response = await fetch('http://localhost:8000/');
+        // let response = await fetch('http://localhost:8000/');
+        let response = await fetch('https://react-portfolio-back.onrender.com/');
         let data = await response.json();
         setSkills(data);
         console.log(data);
