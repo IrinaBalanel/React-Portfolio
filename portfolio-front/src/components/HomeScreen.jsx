@@ -4,12 +4,13 @@ import {Link} from "react-router-dom"
 export default function HomeScreen() {
     return (
         <div id="home">
-            <img src="/IB-big.png" alt="Irina Balanel" width="380px" height="auto"/>
+            <img src="/IB.png" alt="Irina Balanel" width="320px" height="auto"/>
             <h1>Irina Balanel</h1>
-            <p>Full-Stack Developer who stands at the crossroads of creativity and technology, bridging ideas with innovation in the ever-evolving digital landscape</p>
+            <p style={{margin: "0"}}>Full-Stack Developer,</p>
+            <p style={{margin: "0 0 30px 0"}}>bridging Development, Design & Product Strategy</p>
             <div id="buttons">
-                <Link to="/projects" className="btn-outlined">Explore projects</Link>
-                <Link to="https://drive.google.com/file/d/1yjXkbQBSgN_nrDTGsJbt5Jy-rTtyAcVH/view?usp=sharing" className="btn-outlined" target="_blank">View resume</Link>
+                <Link to="/projects" className="btn-filled">Explore projects</Link>
+                <Link to="https://drive.google.com/file/d/1jACavzh1TgsMbMNX4EnkvkiOwTzotbH9/view?usp=sharing" className="btn-filled" target="_blank">View resume</Link>
             </div>
             <div className="socials hidden" id="self-aligned">
                 <Link to="https://github.com/IrinaBalanel" target="_blank">
@@ -18,9 +19,9 @@ export default function HomeScreen() {
                 <Link to="https://www.linkedin.com/in/irina-balanel/" target="_blank">
                     <img className="icon" src="/linkedIn.svg" alt="linkedin"/>
                 </Link>
-                <Link to="https://www.instagram.com/irenmakarova8/" target="_blank">
+                {/* <Link to="https://www.instagram.com/irenmakarova8/" target="_blank">
                     <img className="icon" src="/instagram.svg" alt="instagram"/>
-                </Link>
+                </Link> */}
             </div>
         </div>
     );

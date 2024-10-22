@@ -21,10 +21,12 @@ nav ul{
     border-radius: 0 0 10px 10px; /* Optional: rounded corners */
 }
 
-#header a:hover{
+/* #header a:hover{
+    color:white;
+} */
+.nav-items a:hover{
     color:#f95895;
 }
-
 
 .menu-toggle {
     display: none;

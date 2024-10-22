@@ -17,7 +17,7 @@ app.use(express.json()); //need this line to be able to receive/parse JSON from 
 // app.use(cors({
 //   origin: "*"
 // }));
-const allowedOrigins = ['https://irinabalanel.com', 'http://localhost:8000'];
+const allowedOrigins = ['https://irinabalanel.com', 'http://localhost:5173'];
 
 app.use(cors({
   origin: (origin, callback) => {

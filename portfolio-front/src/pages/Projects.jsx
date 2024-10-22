@@ -18,7 +18,7 @@ export default function Projects(){
 
     useEffect(() => {
     const getProjects = async () => {
-        // let response = await fetch('http://localhost:8000/projects');
+        //let response = await fetch('http://localhost:8000/projects');
         let response = await fetch('https://react-portfolio-back.onrender.com/projects');
         let data = await response.json();
         setProjects(data);

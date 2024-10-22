@@ -10,7 +10,7 @@ export default function About(){
                 <div className="flex-col">
                     <img src="/Calendar.svg" className="icon-big" alt="" aria-hidden="true"></img>
                     <h3>Focus & Consistency</h3>
-                    <p>From managing software products to mastering web development, my career is driven by a love for learning and innovation. My focus? Building high-quality user-centric applications that make a difference.</p>
+                    <p>From managing software products to mastering web development, my career is driven by a love for constant learning and innovation. My focus? Building high-quality user-centric applications that make a difference.</p>
                     <div className="flex-icon">
                         <img src="/pin.svg" alt="location"/> 
                         <Link to="https://www.google.com/maps/place/Toronto,+ON/@43.7182412,-79.3780581,11z/data=!3m1!4b1!4m6!3m5!1s0x89d4cb90d7c63ba5:0x323555502ab4c477!8m2!3d43.653226!4d-79.3831843!16zL20vMGg3aDY?entry=ttu" target="_blank">Based in Toronto, Canada</Link>

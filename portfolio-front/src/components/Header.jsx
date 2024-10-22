@@ -21,13 +21,13 @@ export default function Header() {
 			<span className="bar"></span>
 			</button>
 			<ul className={`nav-items ${menuVisible ? 'show' : ''}`}>
-			<li><Link smooth to="/">Home</Link></li>
-			<li><Link smooth to="/#about-section">About</Link></li>
-			<li><Link smooth to="/#tech">Technologies</Link></li>
-			<li><NavLink to="/projects">Projects</NavLink></li>
+				<li><Link smooth to="/">Home</Link></li>
+				<li><Link smooth to="/#about-section">About</Link></li>
+				<li><Link smooth to="/#tech">Technologies</Link></li>
+				<li><NavLink to="/projects">Projects</NavLink></li>
 			</ul>
 		</nav>
-		<Link smooth to="/#contact" className="hidden"><div className="btn-filled">Contact me</div></Link>
+		<Link smooth to="/#contact" className="hidden"><div className="btn-outlined">Contact me</div></Link>
 		</header>
 	);
 }
