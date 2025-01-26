@@ -89,7 +89,7 @@ async function contact(newMessage) {
   }
 }
 //for navigation via URLs
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../portfolio-front/dist")));
 // Catch-all route to serve React app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Adjusted path
