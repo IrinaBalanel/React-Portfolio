@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const cors = require("cors"); //need this to set this API to allow requests from other servers
 const { MongoClient } = require("mongodb");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || "8000";
