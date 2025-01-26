@@ -1,14 +1,13 @@
 import {useState, useEffect} from "react";
 import "./Tech.css"
+import { baseUrl } from "../../config";
 
 export default function Tech(){
     const [skills, setSkills] = useState([]);
 
     useEffect(() => {
     const getSkills = async () => {
-        let response = await fetch('http://10.10.90.108:8000/');
-        //let response = await fetch('http://localhost:8000/'); 
-        // let response = await fetch('https://react-portfolio-back.onrender.com/');
+        let response = await fetch(`${baseUrl}/api/skills`);
         let data = await response.json();
         setSkills(data);
         console.log(data);

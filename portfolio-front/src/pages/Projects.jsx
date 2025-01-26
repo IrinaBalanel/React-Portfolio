@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import './Projects.css';
+import { baseUrl } from "../../config";
 
 function ProjectLanguages({ languages }) {
     return (
@@ -18,9 +19,7 @@ export default function Projects(){
 
     useEffect(() => {
     const getProjects = async () => {
-        let response = await fetch('http://10.10.90.108:8000/projects');
-        //let response = await fetch('http://localhost:8000/projects');
-        //let response = await fetch('https://react-portfolio-back.onrender.com/projects');
+        let response = await fetch(`${baseUrl}/api/projects`);
         let data = await response.json();
         setProjects(data);
         console.log(data);

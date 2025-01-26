@@ -30,17 +30,17 @@ app.use(cors({
 }));
 
 //API endpoints
-app.get("/projects", async (request, response) => {
+app.get("/api/projects", async (request, response) => {
   let projectsList = await getProjects();
   response.json(projectsList); //send JSON object with appropriate JSON headers
 });
 
-app.get("/", async (request, response) => {
+app.get("/api/skills", async (request, response) => {
   let skillsList = await getSkills();
   response.json(skillsList); //send JSON object with appropriate JSON headers
 });
 
-app.post("/contactform/submit", async (request, reponse) => {
+app.post("/api/contactform/submit", async (request, reponse) => {
   try {
     console.log("Received POST request");
     console.log("Request Body:", request.body);

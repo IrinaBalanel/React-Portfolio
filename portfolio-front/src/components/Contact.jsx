@@ -3,6 +3,7 @@ import {useState} from "react";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import {Link} from "react-router-dom"
+import { baseUrl } from "../../config";
 
 export default function Contact(){
     const [name, setName] = useState('');
@@ -15,9 +16,7 @@ export default function Contact(){
         e.preventDefault();
         const formData = { name, email, phone, message };
         try {
-            const response = await fetch('http://10.10.90.108:8000/contactform/submit', {
-            // const response = await fetch('http://localhost:8000/contactform/submit', {
-            //const response = await fetch('https://react-portfolio-back.onrender.com/contactform/submit', {
+            const response = await fetch(`${baseUrl}/api/contactform/submit`, {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
