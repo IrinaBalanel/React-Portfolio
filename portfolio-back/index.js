@@ -91,8 +91,15 @@ async function contact(newMessage) {
 //for navigation via URLs
 app.use(express.static(path.join(__dirname, "../portfolio-front/dist")));
 // Catch-all route to serve React app
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Adjusted path
+// });
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Adjusted path
+  if (!req.originalUrl.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html"));
+  } else {
+    res.status(404).json({ error: "Not found" });
+  }
 });
 
 //set up server listening
