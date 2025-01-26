@@ -88,10 +88,13 @@ async function contact(newMessage) {
     throw error; // Rethrow the error to be caught in the route handler
   }
 }
-// Catch-all route to serve React app: for navigation via URLs
+//for navigation via URLs
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// Catch-all route to serve React app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Adjusted path
 });
+
 //set up server listening
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
