@@ -91,14 +91,18 @@ async function contact(newMessage) {
 }
 //for navigation via URLs
 // app.use(express.static(path.join(__dirname, "../portfolio-front/dist")));
-
+//version 1
 // app.get("*", (req, res) => {
-//   if (req.originalUrl.startsWith("/api")) {
-//     res.status(404).json({ error: "Not found" }); // Explicitly return 404 for unmatched API routes
-//   } else {
-//     res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Serve React app
-//   }
+//   res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Adjusted path
 // });
+//version 2
+app.get("*", (req, res) => {
+  if (req.originalUrl.startsWith("/api")) {
+    res.status(404).json({ error: "Not found" }); // Explicitly return 404 for unmatched API routes
+  } else {
+    res.sendFile(path.join(__dirname, "../portfolio-front/dist", "index.html")); // Serve React app
+  }
+});
 
 
 //set up server listening
