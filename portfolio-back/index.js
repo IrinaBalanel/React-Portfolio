@@ -8,8 +8,9 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || "8000";
 
-const dbUrl= `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/?retryWrites=true&w=majority&appName=portfolio`;
-const client = new MongoClient(dbUrl);
+//const dbUrl= `mongodb+srv://${process.env.DBUSER}:${process.env.DBPWD}@${process.env.DBHOST}/?retryWrites=true&w=majority&appName=portfolio`;
+//const client = new MongoClient(dbUrl);
+const client = new MongoClient(process.env.MONGO_URI);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); //need this line to be able to receive/parse JSON from request
