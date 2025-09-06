@@ -21,6 +21,8 @@ export default function Projects(){
     const getProjects = async () => {
         let response = await fetch(`${baseUrl}/api/projects`);
         let data = await response.json();
+        data = data.filter((project) => project.to_show !== false); // Filter out inactive projects
+        data.sort((a, b) => a.sorting_number - b.sorting_number);
         setProjects(data);
         console.log(data);
     }
