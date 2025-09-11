@@ -22,7 +22,7 @@ export default function About(){
                     <p>With expertise ranging from React to Node.js, my skills span the full stack of software development. My journey is rooted in perseverance, always challenging myself to learn and excel. Discover more in my resume.</p>
                     <div className="flex-icon">
                         <img src="/download.svg" alt="download"/>
-                        <Link to="https://drive.google.com/file/d/1yjXkbQBSgN_nrDTGsJbt5Jy-rTtyAcVH/view?usp=sharing" target="_blank">My resume</Link>
+                        <Link to="https://resume.irinabalanel.com" target="_blank">My resume</Link>
                     </div>
                 </div>
                 <div className="flex-col">

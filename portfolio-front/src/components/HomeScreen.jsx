@@ -10,7 +10,7 @@ export default function HomeScreen() {
             <p style={{margin: "0 0 30px 0"}}>bridging Development, Design & Product Strategy</p>
             <div id="buttons">
                 <Link to="/projects" className="btn-filled">Explore projects</Link>
-                <Link to="https://drive.google.com/file/d/1jACavzh1TgsMbMNX4EnkvkiOwTzotbH9/view?usp=sharing" className="btn-filled" target="_blank">View resume</Link>
+                <Link to="https://resume.irinabalanel.com" className="btn-filled" target="_blank">View resume</Link>
             </div>
             <div className="socials hidden" id="self-aligned">
                 <Link to="https://github.com/IrinaBalanel" target="_blank">
