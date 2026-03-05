@@ -42,10 +42,11 @@ services:
     volumes:
       - ./portfolio-back/db/seed:/seed:ro
     entrypoint: ["/bin/sh", "-c"]
-    command: >
-      mongoimport --host mongo --username root --password ${MONGO_ROOT_PASSWORD:-portfolio_root_password} --authenticationDatabase admin --db portfolio --collection projects --drop --jsonArray --file /seed/projects.json &&
-      mongoimport --host mongo --username root --password ${MONGO_ROOT_PASSWORD:-portfolio_root_password} --authenticationDatabase admin --db portfolio --collection skills --drop --jsonArray --file /seed/skills.json &&
-      mongoimport --host mongo --username root --password ${MONGO_ROOT_PASSWORD:-portfolio_root_password} --authenticationDatabase admin --db portfolio --collection messages --drop --jsonArray --file /seed/messages.json
+    command:
+      - |
+        mongoimport --host mongo --username root --password ${MONGO_ROOT_PASSWORD:-portfolio_root_password} --authenticationDatabase admin --db portfolio --collection projects --drop --jsonArray --file /seed/projects.json &&
+        mongoimport --host mongo --username root --password ${MONGO_ROOT_PASSWORD:-portfolio_root_password} --authenticationDatabase admin --db portfolio --collection skills --drop --jsonArray --file /seed/skills.json &&
+        mongoimport --host mongo --username root --password ${MONGO_ROOT_PASSWORD:-portfolio_root_password} --authenticationDatabase admin --db portfolio --collection messages --drop --jsonArray --file /seed/messages.json
     networks:
       - irina_portfolio
 
