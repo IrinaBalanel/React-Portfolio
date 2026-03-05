@@ -1,0 +1,16 @@
+services:
+  portfolio_front:
+    image: ${IMAGE:-react-portfolio-frontend:latest}
+    build:
+      context: ./portfolio-front
+      args:
+        VITE_API_URL: ${VITE_API_URL:-https://irinabalanel.com}
+    ports:
+      - "${APP_PORT:-8085}:80"
+    restart: unless-stopped
+    networks:
+      - irina_portfolio_frontend
+
+networks:
+  irina_portfolio_frontend:
+    name: irina_portfolio_frontend
