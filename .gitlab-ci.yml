@@ -38,25 +38,27 @@ deploy:backend:
   before_script:
     - apk add --no-cache openssh-client
     - install -m 700 -d ~/.ssh
-    - echo "$PROXMOX_SSH_PRIVATE_KEY_B64" | base64 -d > ~/.ssh/id_ed25519
+    - echo "$DEPLOY_SSH_PRIVATE_KEY_B64" | base64 -d > ~/.ssh/id_ed25519
     - chmod 600 ~/.ssh/id_ed25519
-    - ssh-keyscan -H "$PROXMOX_HOST" >> ~/.ssh/known_hosts
+    - ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
   script:
     - |
       set -euo pipefail
+      deploy_user="${DEPLOY_USER:-root}"
+      deploy_dir="/opt/irinabalanel-api"
       cat > deploy.env <<ENV
       IMAGE=${BACKEND_IMAGE_REPOSITORY}:${BACKEND_IMAGE_TAG}
       APP_PORT=8000
       MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
       ALLOWED_ORIGINS=https://irinabalanel.com,http://localhost:5173
       ENV
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- mkdir -p /opt/irinabalanel-api/portfolio-back/db/seed"
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- bash -lc 'cat > /opt/irinabalanel-api/docker-compose.backend.yml'" < docker-compose.backend.yml
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- bash -lc 'cat > /opt/irinabalanel-api/.env'" < deploy.env
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- bash -lc 'cat > /opt/irinabalanel-api/portfolio-back/db/seed/projects.json'" < portfolio-back/db/seed/projects.json
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- bash -lc 'cat > /opt/irinabalanel-api/portfolio-back/db/seed/skills.json'" < portfolio-back/db/seed/skills.json
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- bash -lc 'cat > /opt/irinabalanel-api/portfolio-back/db/seed/messages.json'" < portfolio-back/db/seed/messages.json
-      ssh "${PROXMOX_USER}@${PROXMOX_HOST}" "pct exec ${HOSTING_LXC_ID} -- bash -lc 'cd /opt/irinabalanel-api && docker compose -f docker-compose.backend.yml pull && docker compose -f docker-compose.backend.yml up -d --remove-orphans'"
+      ssh "${deploy_user}@${DEPLOY_HOST}" "mkdir -p ${deploy_dir}/portfolio-back/db/seed"
+      ssh "${deploy_user}@${DEPLOY_HOST}" "cat > ${deploy_dir}/docker-compose.backend.yml" < docker-compose.backend.yml
+      ssh "${deploy_user}@${DEPLOY_HOST}" "cat > ${deploy_dir}/.env" < deploy.env
+      ssh "${deploy_user}@${DEPLOY_HOST}" "cat > ${deploy_dir}/portfolio-back/db/seed/projects.json" < portfolio-back/db/seed/projects.json
+      ssh "${deploy_user}@${DEPLOY_HOST}" "cat > ${deploy_dir}/portfolio-back/db/seed/skills.json" < portfolio-back/db/seed/skills.json
+      ssh "${deploy_user}@${DEPLOY_HOST}" "cat > ${deploy_dir}/portfolio-back/db/seed/messages.json" < portfolio-back/db/seed/messages.json
+      ssh "${deploy_user}@${DEPLOY_HOST}" "cd ${deploy_dir} && docker compose -f docker-compose.backend.yml pull && docker compose -f docker-compose.backend.yml up -d --remove-orphans"
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
