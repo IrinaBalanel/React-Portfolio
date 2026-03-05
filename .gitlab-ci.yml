@@ -62,3 +62,34 @@ deploy:backend:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
+
+deploy:frontend-static:
+  stage: deploy
+  image: node:20-alpine
+  before_script:
+    - apk add --no-cache openssh-client
+    - install -m 700 -d ~/.ssh
+    - echo "$CADDY_SSH_PRIVATE_KEY_B64" | base64 -d > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - ssh-keyscan -H "$CADDY_DEPLOY_HOST" >> ~/.ssh/known_hosts
+  script:
+    - cd portfolio-front
+    - npm ci
+    - VITE_API_URL=https://irinabalanel.com npm run build
+    - tar -czf ../dist.tar.gz -C dist .
+    - scp ../dist.tar.gz "${CADDY_DEPLOY_USER}@${CADDY_DEPLOY_HOST}:/tmp/irinabalanel-com-${CI_COMMIT_SHA}.tar.gz"
+    - |
+      ssh "${CADDY_DEPLOY_USER}@${CADDY_DEPLOY_HOST}" "
+        set -euo pipefail
+        target=/opt/caddy/www/irinabalanel/irinabalanel-com
+        tmp=\"\${target}.new.${CI_COMMIT_SHA}\"
+        rm -rf \"\$tmp\"
+        mkdir -p \"\$tmp\"
+        tar -xzf /tmp/irinabalanel-com-${CI_COMMIT_SHA}.tar.gz -C \"\$tmp\"
+        rm -f /tmp/irinabalanel-com-${CI_COMMIT_SHA}.tar.gz
+        rm -rf \"\$target\"
+        mv \"\$tmp\" \"\$target\"
+      "
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
